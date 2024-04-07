@@ -70,4 +70,4 @@ $ tree
 
 write -> add -> commit -> git push
 
-working dir -> git add -> staging area -> git commit -> repo -> git push (github or gitlab)
+working area -> git add -> staging area -> git commit -> repo -> git push (github or gitlab)
