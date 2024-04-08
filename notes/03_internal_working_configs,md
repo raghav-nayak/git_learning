@@ -1,0 +1,104 @@
+```sh
+$ git config --global user.name "Raghav Nayak" user.email "abc@example.com"
+
+$ git config --global user.name
+Raghav Nayak
+```
+
+
+default code editor is vim. you can change it from vim to another by using 
+### config
+`git config --global core.editor "code --wait"`
+
+In home folder,
+```sh
+$ cat .gitconfig
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+	name = Raghav Nayak
+	email = abc@example.com
+[core]
+	editor = code --wait
+```
+
+or 
+
+```sh
+$ git config --list
+filter.lfs.required=true
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+user.name=Raghav Nayak
+user.email=abc@example.com
+core.editor=code --wait
+```
+
+
+### `.gitignore`
+to avoid unwanted files and file with sensitive files to be pushed
+
+There are some predefined files which can be added to `.gitignore` file
+https://mrkandreev.name/snippets/gitignore-generator/
+https://www.toptal.com/developers/gitignore
+
+
+### Commit
+![](./images/git_head.png)
+
+- unique id is called
+- commit is always based on the previous commit
+
+```sh
+$ ll
+total 56
+drwxr-xr-x  19 raghavnayak  staff  608 Apr  8 22:00 objects
+-rw-r--r--   1 raghavnayak  staff  110 Apr  8 22:00 FETCH_HEAD
+drwxr-xr-x  14 raghavnayak  staff  448 Apr  7 20:27 .
+-rw-r--r--   1 raghavnayak  staff   41 Apr  7 20:27 ORIG_HEAD
+-rw-r--r--   1 raghavnayak  staff   18 Apr  7 20:27 COMMIT_EDITMSG
+-rw-r--r--   1 raghavnayak  staff  535 Apr  7 20:27 index
+drwxr-xr-x   7 raghavnayak  staff  224 Apr  7 20:26 ..
+-rw-r--r--   1 raghavnayak  staff  322 Apr  7 01:24 config
+drwxr-xr-x   5 raghavnayak  staff  160 Apr  7 01:17 refs
+drwxr-xr-x   4 raghavnayak  staff  128 Apr  7 01:17 logs
+-rw-r--r--   1 raghavnayak  staff   23 Apr  7 01:14 HEAD
+drwxr-xr-x  16 raghavnayak  staff  512 Apr  7 01:14 hooks
+-rw-r--r--   1 raghavnayak  staff   73 Apr  7 01:14 description
+drwxr-xr-x   3 raghavnayak  staff   96 Apr  7 01:14 info
+```
+
+`COMMIT_EDITMSG` -> the file content we see when we try to commit message
+
+`config` contains the repo level configuration
+```sh
+$ cat config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/raghav-nayak/tea_git_learning.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+```
+
+head is pointing to master. As you can see in the `head` file
+```sh
+$ cat head
+ref: refs/heads/master
+```
+
+`hooks` folder contains different hooks before and after certain action you want to take
+
+`logs` folder contains all the logs
+
