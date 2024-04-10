@@ -1,5 +1,6 @@
 # git diff
 - shows the diff between working with staging 
+- you can use commit hash or branch too
 
 ## how to read diff
 ```sh
@@ -180,3 +181,33 @@ index 41ca6e8..4f75fde 100644
 ```
 
 or you can use git diff master..footer
+
+# git stash
+
+conflicting changes do not allow to switch the branches, without commit.
+it is like a temporary shelf.
+
+```sh
+$ git stash
+Saved working directory and index state WIP on master: 3e505b4 update index file
+
+$ git stash list
+stash@{0}: WIP on master: 3e505b4 update index file
+
+$ git stash pop
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   footer.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (a058137ffc829f33517757a6e9dcff8ffa9ec973)
+```
+
+you can pop the changes from one branch to another.
+
+if you have multiple stash, you can apply stash by 
+```sh
+git stash pop stash@{2}
+```
