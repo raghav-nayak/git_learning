@@ -305,3 +305,11 @@ $ git stash pop stash@{2}
 ```
 
 
+#### git rebase
+```sh
+$ git checkout bugfix
+Switched to branch 'bugfix'
+
+$ git rebase master
+Successfully rebased and updated refs/heads/bugfix.
+```
