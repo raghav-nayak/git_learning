@@ -44,11 +44,19 @@ Initialized empty Git repository in /git_learning/dir_one/.git/
 $ git add test1.txt
 ```
 
+#### adding a commit
 ```sh
 $ git commit -m "added file one"
 [master (root-commit) c3af50f] added file one
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test1.txt
+```
+
+#### add and commit in one command
+```sh
+$ git commit -am "updated main website"
+[master 21f1dd1] updated main website
+ 1 file changed, 2 insertions(+)
 ```
 
 #### viewing commits
@@ -135,6 +143,11 @@ Previous HEAD position was 56ff0b5 add footer section to the code base
 Switched to branch 'master'
 ```
 
+#### renaming a branch (master to main)
+```sh
+$ git branch -M main
+```
+
 #### git checkout two commits prior to head
 ```sh
 $ git log --oneline
@@ -182,6 +195,7 @@ a9916ae initial commit
 ```
 
 #### to check the complete list of changes done in the repo
+it keeps track of where your HEAD is moving from one branch to another. 
 ```sh
 $ git reflog
 3e505b4 (HEAD -> master) HEAD@{0}: checkout: moving from 2020251ce107b0483f1220648a8aaea08d1fe911 to master
@@ -218,6 +232,11 @@ c5ac897 HEAD@{30}: checkout: moving from master to nav-bar
 c5ac897 HEAD@{31}: commit: added index.html
 a9916ae HEAD@{32}: commit (initial): initial commit
 (END)
+
+--  example from another repo
+$ git reflog show HEAD
+11e6485 (HEAD -> main) HEAD@{0}: Branch: renamed refs/heads/master to refs/heads/main
+11e6485 (HEAD -> main) HEAD@{2}: commit (initial): add index.html
 ```
 
 
@@ -312,4 +331,93 @@ Switched to branch 'bugfix'
 
 $ git rebase master
 Successfully rebased and updated refs/heads/bugfix.
+```
+
+
+#### git remote
+
+to add remote 
+```sh
+$ git remote add origin https://github.com/raghav-nayak/git-test-demo.git
+```
+
+to show all the remote repo urls
+```sh
+$ git remote -v
+origin	https://github.com/raghav-nayak/git-test-demo.git (fetch)
+origin	https://github.com/raghav-nayak/git-test-demo.git (push)
+```
+
+to rename
+```sh
+$ git remote rename old_name new_name
+```
+
+to remove
+```sh
+$ git remote remove name
+```
+
+
+#### git push
+
+to push local changes to remote
+```sh
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 575 bytes | 575.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/raghav-nayak/git-test-demo.git
+   96e220b..0c1aeea  main -> main
+```
+
+to set up an upstream
+```sh
+$ git push --set-upstream origin main
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 474 bytes | 474.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/raghav-nayak/git-test-demo.git
+   0c1aeea..e5f0db3  main -> main
+branch 'main' set up to track 'origin/main'.
+```
+
+#### git clone
+
+```sh
+$ git clone https://github.com/raghav-nayak/histesh-choudhary-golang.git
+Cloning into 'histesh-choudhary-golang'...
+remote: Enumerating objects: 121, done.
+remote: Counting objects: 100% (121/121), done.
+remote: Compressing objects: 100% (90/90), done.
+remote: Total 121 (delta 1), reused 121 (delta 1), pack-reused 0
+Receiving objects: 100% (121/121), 15.11 MiB | 18.25 MiB/s, done.
+Resolving deltas: 100% (1/1), done.
+```
+
+### git fetch
+to get changes from one branch or remote to local repo.
+
+```sh
+$ git fetch
+```
+
+### git pull
+pull will get the changes from remote you working area
+```sh
+$ git pull origin main
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 868 bytes | 289.00 KiB/s, done.
+From https://github.com/raghav-nayak/git-test-demo
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
 ```
