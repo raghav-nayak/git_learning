@@ -1,3 +1,6 @@
+`git rebase` is a Git command used to incorporate changes from one branch into another by reapplying commits on top of another base branch. It essentially allows you to move, combine, or clean up commits in your Git history.
+
+
 - alternative way to merge
 - clean up tool
 - merge everything into a single timeline
