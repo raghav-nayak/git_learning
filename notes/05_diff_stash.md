@@ -184,6 +184,7 @@ or you can use git diff master..footer
 
 # git stash
 
+The `git stash` command is used in Git to temporarily store changes that are not ready to be committed yet, allowing you to work on another task or switch branches without committing your changes. It's useful when you need to quickly switch to a different branch or pull in changes from another branch without committing your current changes.
 conflicting changes do not allow to switch the branches, without commit.
 it is like a temporary shelf.
 
