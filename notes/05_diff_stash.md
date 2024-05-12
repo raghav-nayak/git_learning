@@ -2,6 +2,28 @@
 - shows the diff between working with staging 
 - you can use commit hash or branch too
 
+The `git diff` command is used to display the differences between two states of the repository. Here's a breakdown of how it works and some common use cases:
+
+1. **Show changes in the working directory**: If you've made changes to your files but haven't staged them yet, you can see the differences between the current state of your working directory and the last commit using:
+`git diff`
+  
+2. **Show changes in the staging area (index)**: If you've staged changes using `git add` but haven't committed them yet, you can see the differences between the staging area and the last commit using:
+`git diff --cached`
+This command compares the changes you've staged with what's currently committed.
+
+3. **Compare between two commits**: You can compare any two commits by providing their commit hashes:
+
+`git diff <commit1> <commit2>`
+This command shows the difference between the two specified commits.
+
+4. **Compare a file between two commits**: To compare changes in a specific file between two commits, you can use:
+`git diff <commit1> <commit2> -- <file>`
+This command shows the differences in the specified file between the two commits.
+   
+5. **View changes in a specific branch**: You can also use `git diff` to compare the changes between your current branch and another branch:
+ `git diff <branch_name>`
+ This command shows the differences between the current branch and the specified branch.
+
 ## how to read diff
 ```sh
 $ git diff
