@@ -6,6 +6,8 @@
 - merge everything into a single timeline
 
 **Caution:** Never run this on master/main branch
+It's important to use caution when rebasing, especially on branches that are shared with others. Since rebasing rewrites history, it can cause issues for collaborators who have based their work on the original branch. Only rebase branches that you haven't shared or published yet, or communicate clearly with your team about your intentions.
+
 
 ![[Pasted image 20240411111811.png]]
 
