@@ -2,6 +2,9 @@ This repo is created from the lessons learned from [Hitesh Choudhary's git serie
 
 This repo contains notes and commands of git for beginners.
 
+Git is a distributed version control system (DVCS) used to track changes in source code during software development. It enables multiple developers to work on a project simultaneously, provides tools to manage changes, and ensures that the entire development history is maintained.
+
+
 The commands covered are 
 - **git init:** Initializes a new Git repository in the current directory.
 - **git clone [url]:** Clones a repository from a URL onto your local machine.
